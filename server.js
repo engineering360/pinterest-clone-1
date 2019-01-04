@@ -15,7 +15,14 @@ const apiRoute = require("./routes/api")
 const port = process.env.PORT || "3000"
 const app = express()
 
-mongoose.connect(process.env.DB_URL)
+mongoose.connect('mongodb://marype:networkengineering12@ds149404.mlab.com:49404/pinterest-clone', function(err){
+ if(err){
+   console.log(err);
+ }else{
+   console.log('connected to db');
+  
+}
+})
 
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")))
 app.use(bodyParser.json())
